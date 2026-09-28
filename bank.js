@@ -1,18 +1,21 @@
 (function(root){'use strict';
-const B={version:1,updated:'2026-09-27',subjects:[
+const B={version:1,updated:'2026-09-28',subjects:[
 {id:'en',name:'英語',icon:'Aa',color:'#3764b4',summary:'疑問詞・所有表現を中心に、文法と英作文を確認。'},
 {id:'math',name:'数学',icon:'△',color:'#267966',summary:'代数は式・方程式・数量関係。幾何は合同と証明。'},
 {id:'ja',name:'国語',icon:'文',color:'#8b628d',summary:'漢文の基礎復習を用意。作品本文と漢字範囲は資料待ち。'},
-{id:'science',name:'理科',icon:'波',color:'#3f8290',summary:'物理・地学系の音・振動・地震。生物・化学系は資料待ち。'},
+{id:'science',name:'理科',icon:'波',color:'#3f8290',summary:'物理・地学系の音・振動・地震・弾性。生物・化学系は資料待ち。'},
 {id:'social',name:'社会',icon:'地',color:'#b07939',summary:'地理はASEAN、歴史は旧石器・縄文・弥生を中心に。'}],skills:[],patterns:[]};
 function skill(id,subject,track,name,status,note){B.skills.push({id,subject,track,name,status,note})}
 skill('en_wh','en','文法','疑問詞・Which','candidate','Lesson 5周辺の学習内容。正式な試験範囲は未確認。');
 skill('en_own','en','文法','所有格・所有代名詞・Whose','candidate','最近扱った問題に基づく練習。');
 skill('en_base','en','文法','be動詞・一般動詞・三単現','prerequisite','疑問文と英作文の前提となる既習事項。');
 skill('en_write','en','文法','疑問文・所有表現の英作文','candidate','学校本文の再現ではなく、既習文法を使うオリジナル短文。');
+skill('en_imperative','en','文法','命令文・呼びかけ','candidate','9/28現在の授業で扱っている。教材のLesson・ページと肯定・否定の詳細は未確認。基礎確認のみ。');
+Object.assign(B.skills.at(-1),{school_coverage:'confirmed',first_seen:'2026-09-28',last_seen:'2026-09-28',depth:'unknown',mastery:0,last_mastery_check:null,mastery_evidence:[],weaknesses:[],strengths:[],mistake_history:[],review_priority:'high'});
 skill('en_read','en','コミュニケーション','本文・リスニング・指定単語','waiting','授業本文、指定単語、音源・スクリプトを待っています。');
 skill('ma_expr','math','代数','文字式の分配・整理','candidate','かっこ、小数、分数を含む文字式。');
 skill('ma_eq','math','代数','一次方程式','candidate','解は「文字＝数」の形で答えます。');
+Object.assign(B.skills.at(-1),{school_coverage:'confirmed',learning_status:'in_progress',last_seen:'2026-09-28',exam_coverage:'estimated'});
 skill('ma_qty','math','代数','数量・等式・不等式','candidate','以下・未満の区別、単位、割合、速さなど。');
 skill('ma_cong','math','幾何','合同条件・対応関係','candidate','三辺相等、二辺とその間の角、共通辺を中心に。');
 skill('ma_proof','math','幾何','基本の合同証明','candidate','図・条件・理由・合同条件・結論を確認。');
@@ -22,13 +25,19 @@ skill('ja_word','ja','漢文','置き字・再読文字','prerequisite','基本�
 skill('ja_lion','ja','古典','獅子と鼠／獅子王と鼠','waiting','題名と使用本文を確認後に作問します。');
 skill('ja_text','ja','現代文','トロッコ・科学者とあたま','waiting','授業で扱った本文・設問・指定範囲が必要です。');
 skill('ja_kanji','ja','漢字・文法','漢字・語句・文法の指定範囲','waiting','指定リストや学校プリントを待っています。');
+skill('ja_conjugation','ja','文法','動詞の活用：五段・下一段','candidate','9/28に種類の名前に軽く触れた。具体的な活用表や見分け方の授業状況は未確認。名称の診断のみ。');
+Object.assign(B.skills.at(-1),{school_coverage:'confirmed',first_seen:'2026-09-28',last_seen:'2026-09-28',depth:'basic',mastery:0,last_mastery_check:null,mastery_evidence:[],weaknesses:[],strengths:[],mistake_history:[],review_priority:'high'});
 skill('sc_sound','science','物理・地学系','音・振動の基本','candidate','音の高さ・大きさ・音色と、振動の関係。');
 skill('sc_quake','science','物理・地学系','地震・プレート・P波とS波','candidate','用語・位置関係・地震が起きるしくみ。速さの計算は未収録。');
+skill('sc_elastic','science','物理・地学系／力','弾性・弾性力','candidate','9/28授業で扱ったことを確認。正式範囲は未確認。まず意味と区別を診断します。ばねの比例、フックの法則、N、力の作図・計算は未確認。');
+Object.assign(B.skills.at(-1),{school_coverage:'confirmed',first_seen:'2026-09-28',last_seen:'2026-09-28',depth:'unknown',mastery:0,last_mastery_check:null,mastery_evidence:[],weaknesses:[],strengths:[],mistake_history:[],review_priority:'high'});
 skill('sc_exp','science','物理・地学系','箱ギター・波の実験詳細','waiting','装置・変えた条件・結果を確認してから出題します。');
 skill('sc_bio','science','生物・化学系','今回の授業範囲','waiting','現在の進度と最新プリントを待っています。');
 skill('sc_light','science','物理・地学系','光・凸レンズ','waiting','一学期の既習範囲。今回の収録は範囲確認後。');
 skill('so_asean','social','地理','ASEAN・東南アジア','candidate','結成時と現在の加盟国、地域協力、多様性。');
 skill('so_japan','social','歴史','旧石器・縄文・弥生','candidate','時代の順序、道具、稲作、金属器を比較。');
+Object.assign(B.skills.at(-1),{school_coverage:'confirmed',first_seen:'2026-09-21',last_seen:'2026-09-28',textbook:'p.28〜',exam_coverage:'estimated'});
+skill('so_regions','social','歴史／発展','北海道・南西諸島の文化','waiting','学校ノートへの掲載は確認。中間範囲は未確認のため発展事項として保留。');
 skill('so_china','social','歴史','古代中国の制度・人物','prerequisite','一学期の既習事項。必要に応じて選んで復習。');
 skill('so_climate','social','地理','気候・雨温図','waiting','一学期の既習範囲。今回の範囲を確認してから収録。');
 function add(id,sk,make){B.patterns.push({id,skill:sk,make})}
@@ -36,6 +45,10 @@ function fixed(id,sk,q){add(id,sk,()=>JSON.parse(JSON.stringify(q)));B.patterns.
 function choice(id,sk,prompt,answer,wrong,explanation,extra={}){fixed(id,sk,{type:'choice',prompt,answer,options:[answer,...wrong],explanation,...extra})}
 function text(id,sk,prompt,answer,explanation,extra={}){fixed(id,sk,{type:'text',prompt,answer,explanation,...extra})}
 function rubric(id,sk,prompt,answer,criteria,explanation,extra={}){fixed(id,sk,{type:'rubric',prompt,answer,criteria,explanation,...extra})}
+// Newly reported lessons receive only introductory diagnostic prompts until the school materials are available.
+choice('imperative_form','en_imperative','命令文の基本的な形はどれですか。','動詞の原形で始める',['主語の後に動詞を置く','必ず疑問詞で始める','動詞を過去形にする'],'相手に働きかける基本の命令文は動詞の原形で始めます。学校の呼びかけの語句は教材確認後に追加します。');
+choice('imperative_address','en_imperative','「Ken, look at this.」の Ken はどんな働きですか。','相手に呼びかけている',['時を表している','場所を表している','否定を表している'],'文頭の Ken は話しかける相手への呼びかけです。');
+choice('conjugation_names','ja_conjugation','授業で名前に触れた、動詞の活用の種類の組み合わせは？','五段活用・下一段活用',['五段活用・体言止め','上一段活用・サ行変格活用','連用形・終止形'],'9月28日に五段活用と下一段活用に軽く触れた記録があります。見分け方と活用表は教材確認後に追加します。');
 const rand=(a,b)=>a+Math.floor(Math.random()*(b-a+1));const sign=n=>n<0?`−${-n}`:`＋${n}`;const linear=(a,b)=>a===0?String(b):`${a===1?'':a===-1?'−':a}x${b?sign(b):''}`;const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a);const frac=(a,b)=>{let g=gcd(a,b);return b/g===1?String(a/g):`${a/g}/${b/g}`};
 // English: school-aligned grammar in original examples.
 [
@@ -124,6 +137,9 @@ choice('ja_imi','ja_word','「未だ知らず」の意味として適切なの�
 function waves(){let path=(n,amp,base)=>Array.from({length:181},(_,i)=>`${i?'L':'M'}${25+i*2} ${base-Math.sin(i/180*Math.PI*2*n)*amp}`).join(' ');return `<svg viewBox="0 0 420 245" role="img" aria-label="同じ時間の波形AとB。Aは2回、Bは4回振動し、振れ幅は同じ。"><text x="8" y="30">A</text><text x="8" y="150">B</text><path d="M25 70H390M25 190H390" stroke="#ccd6e4"/><path d="${path(2,27,70)}" stroke="#3764b4" fill="none" stroke-width="3"/><path d="${path(4,27,190)}" stroke="#267966" fill="none" stroke-width="3"/><text x="140" y="239" font-size="13">左右の幅は同じ時間</text></svg>`}
 choice('sound_graph','sc_sound','AとBは同じ時間の波形です。より高い音はどちらですか。','B',['A','高さは同じ'],'同じ時間でBはより多く振動しているので振動数が大きく、高い音です。図の形から振動数を比較する基礎練習です。',{diagram:waves()});
 rubric('sound_reason','sc_sound','ギターの弦をはじくと、離れた所にいる人にも音が聞こえるしくみを説明しなさい。','弦の振動が周囲の空気を振動させ、その振動が耳まで伝わるから。',['弦が振動すると書いた','空気などを通して振動が伝わると書いた','振動が耳に届くことを説明した'],'音を出す物体の振動と、伝える空気の振動をつなげます。');
+choice('elastic_property','sc_elastic','変形した物体が元の形に戻ろうとする性質を何といいますか。','弾性',['弾性力','弾性エネルギー','振動数'],'弾性は物体の性質です。元に戻ろうとするときにはたらく力は弾性力です。');
+choice('elastic_force','sc_elastic','変形した物体が元の形に戻ろうとするときにはたらく力を何といいますか。','弾性力',['弾性','弾性エネルギー','重力'],'弾性力は力の名前です。地震分野で学んだ弾性エネルギーとは区別します。');
+choice('elastic_example','sc_elastic','伸ばした輪ゴムから手を放すと、輪ゴムが元の形に戻ろうとします。このときはたらく力は？','弾性力',['重力だけ','磁力','摩擦力だけ'],'変形した輪ゴムが元の形に戻ろうとする力が弾性力です。');
 const quakeSVG='<svg viewBox="0 0 430 260" role="img" aria-label="地面上の点Aと、その真下の地下の点B。Bから地震の波が広がる。"><path d="M15 65H415" stroke="#536c58" stroke-width="4"/><path d="M15 68H415V250H15Z" fill="#f0eadc"/><path d="M230 65V180" stroke="#8390a0" stroke-dasharray="5 5"/><circle cx="230" cy="180" r="45" fill="none" stroke="#b8a786"/><circle cx="230" cy="180" r="75" fill="none" stroke="#cbbfa8"/><circle cx="230" cy="180" r="6" fill="#b95e45"/><circle cx="230" cy="65" r="6" fill="#3764b4"/><text x="243" y="57">A</text><text x="240" y="182">B</text><text x="23" y="51" font-size="14">地面</text></svg>';
 text('quake_focus','sc_quake','図のBは地震が発生した地下の場所です。この場所を何といいますか。','震源','地震が発生した地下の場所が震源。その真上の地表の点が震央です。',{diagram:quakeSVG,alt:['しんげん']});
 text('quake_epi','sc_quake','図のAは震源の真上の地表の点です。この点を何といいますか。','震央','震源の真上にある地表の点を震央といいます。',{diagram:quakeSVG,alt:['しんおう']});
@@ -150,6 +166,13 @@ choice('japan_rice','so_japan','弥生文化の代表的な特徴として適切
 choice('japan_metal','so_japan','弥生時代に利用が広がった金属器の組み合わせは？','青銅器と鉄器',['アルミニウムとプラスチック','ガラスと紙','石器と木器だけ'],'青銅器や鉄器が伝わり、利用されました。用途の詳細は学校資料に合わせて追加します。');
 choice('japan_compare','so_japan','資料A：狩り・採集・漁が食生活の中心。資料B：水田で稲を育て、収穫物を蓄える。変化の説明として適切なのは？','食料を得る方法に、稲を育てる生産が広がった',['狩りも漁も完全になくなった','食料を蓄える必要がなくなった','全員が工場で働くようになった'],'稲作が広がっても、狩り・採集・漁が全てなくなったわけではありません。');
 rubric('japan_reason','so_japan','資料：縄文時代は狩り・採集・漁が中心。弥生時代には水田稲作と金属器の利用が広がった。資料をもとに、生活の変化を2点説明しなさい。','食料の得方では水田稲作が広がり、道具では青銅器・鉄器などの金属器が使われるようになった。',['水田稲作の広がりを書いた','金属器の利用を書いた','資料にない断定を加えていない'],'資料の「食料」と「道具」という2つの観点でまとめます。');
+choice('japan_route','so_japan','水稲耕作や金属器が日本列島へ伝わる流れとして適切なのは？','中国大陸→朝鮮半島→北部九州',['中国大陸→北海道→北部九州','北部九州→朝鮮半島→中国大陸','ヨーロッパ→南西諸島→北部九州'],'大陸の農耕文化が朝鮮半島を経て北部九州へ伝わりました。');
+choice('japan_warming','so_japan','縄文海進に至る変化の順序は？','温暖化→海面上昇→縄文海進',['寒冷化→海面低下→縄文海進','温暖化→海面低下→縄文海進','海面上昇→寒冷化→縄文海進'],'温暖化に伴う海面上昇です。');
+choice('japan_metal_use','so_japan','弥生時代の金属器の用途の組み合わせは？','青銅器＝祭祀用、鉄器＝実用',['青銅器＝実用、鉄器＝祭祀用','どちらも土器の材料','どちらも縄文時代のみ使用'],'青銅器は祭祀、鉄器は農具や武器など実用に使われました。');
+choice('japan_site_iwajuku','so_japan','関東ローム層から打製石器が発見された旧石器時代の遺跡は？','岩宿遺跡',['三内丸山遺跡','大森貝塚','吉野ヶ里遺跡'],'群馬県の岩宿遺跡。相沢忠洋による発見です。');
+choice('japan_site_sannai','so_japan','大規模集落やクリ林、遠隔地との交易が知られる縄文時代の遺跡は？','三内丸山遺跡',['岩宿遺跡','金取遺跡','はさみ山遺跡'],'三内丸山遺跡は縄文時代の大規模集落です。');
+choice('japan_pottery_compare','so_japan','土器の説明として適切な組み合わせは？','縄文土器＝厚手・低温焼成、弥生土器＝薄手・高温焼成',['縄文土器＝薄手・高温焼成、弥生土器＝厚手・低温焼成','両方とも鉄器','どちらも旧石器時代の道具'],'学校ノートの特徴を比較します。');
+rubric('japan_change_detail','so_japan','「水稲耕作」「金属器」「食料生産」を使い、縄文から弥生への生活の変化を説明しなさい。','縄文時代の採集・狩猟・漁労による食料採取から、弥生時代には水稲耕作が広まり食料生産が行われ、金属器も使われた。',['縄文時代の食料採取と比較した','水稲耕作による食料生産を説明した','金属器の利用に触れた'],'指定語句を使い生活の変化を説明します。');
 [
 ['qin','中国を初めて統一した国は？','秦',['夏','殷','周'],'秦の始皇帝が中国を統一しました。'],
 ['yin','この中で、甲骨文字などから実在が確認されている最も古い中国王朝は？','殷',['秦','漢','晋'],'殷の甲骨文字などが重要な資料です。夏の実在・年代の議論と区別して学びます。'],
